@@ -1,0 +1,39 @@
+[% IF !ctx.is_staff %]
+<div id="footer-wrap">
+<div id="footer">
+    [% IF ctx.get_org_setting(
+        ctx.physical_loc || ctx.aou_tree.id, 'opac.allow_pending_user') %]
+    <a href="[% mkurl(ctx.opac_root _ '/register') %]">[% 
+        l('Request Library Card') %]</a> &nbsp;|&nbsp;
+    [% ELSE %]
+    <a href="[% hostname %]">[% l('Catalog') %]</a> &nbsp;|&nbsp;
+    [% END %]
+    <a href="http://ezproxy.kenotnlibrayr.org/login?url=http://www.worldbookonline.com/pl/referencecenter/home?subacct=L9456">[% l('World Book Encyclopedia') %]</a> &nbsp;|&nbsp;
+    <a href="http://search.ebscohost.com.ezproxy.kentonlibrary.org/login.aspx?authtype=ip,uid&amp;profile=ehost&amp;defaultdb=f5h">[% l('Magazine Articles') %]</a> &nbsp;|&nbsp;
+    <a href="http://ipac.kentonlibrary.org:8081/ipac20/ipac.jsp?profile=main">[% l('Newspaper Index') %]</a> &nbsp;|&nbsp;
+    <a href="http://www.kentonlibrary.org/genealogy">[% l('Local History &amp; Genealogy') %]</a> &nbsp;|&nbsp;
+    <a href="http://www.kentonlibrary.org/ill">[% l('Interlibrary Loan') %]</a> &nbsp;|&nbsp;
+    <a href="http://www.kentonlibrary.org/great-reads/item-requests">[% l('Request a Purchase') %]</a> &nbsp;|&nbsp;
+    [% IF ctx.timing %]
+    <div id="timing">
+        [% FOR event IN ctx.timing %]
+        At <span class="timing-time">[% event.0 | format("%0.4f") %]</span>:
+        <span class="timing-event">[% event.1 %]</span><br />
+        [% END %]
+    </div>
+    [% END %]
+    <div id="copyright_text" style="margin-top: 2em;">
+        [% l('Copyright &copy; 2006-[_1] Georgia Public Library Service, and others', date.format(date.now, '%Y')) %]
+    </div>
+    <div id="footer_logo">
+        [% l('Powered by') %]
+        <a href="http://evergreen-ils.org">
+            <img src="[% ctx.media_prefix %]/opac/images/eg_tiny_logo.png"
+                style="border:none; width: 94px; height: 16px;"
+                alt="[% l('Evergreen') %]"
+            />
+        </a>
+    </div>
+</div>
+</div>
+[% END %]
