@@ -15,7 +15,7 @@
         primary = "#003d59", # dark blue
         primary_fade = "#0f547a", # medium blue
         primary_offset = "#416078", # light_blue
-        control = "#69A088", # lighter green
+        control = "#6988a0", # lighter blue
         accent_light = "#ccc", #  grey (light)
         accent_lighter = "#ddd", #  grey (lighter)
         accent_lighter2 = "#d8d8d8", #  grey (lighter again)

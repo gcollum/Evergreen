@@ -1,2 +1,11 @@
-       <div id="topnav_logo"> <a href="/"><img alt="[% l('Evergreen Logo') %]" 
-            src="[% ctx.media_prefix %]/opac/images/small_logo.png" /></a></div>
+
+       <div id="topnav_logo"> <a href="http://www.kentonlibrary.org"><img alt="[% l('KCPL Logo') %]" 
+            src="[% ctx.media_prefix %]/opac/images/kcpl/kcpl_logo.png" /></a>
+       <a href="http://ebooks.kentonlibrary.org"><img class="topnav_kcpl" alt="[% l('eBooks') %]" 
+            src="[% ctx.media_prefix %]/opac/images/kcpl/header_ebooks.png" /></a>
+       <a href="http://kentonky.oneclickdigital.com"><img class="topnav_kcpl" alt="[% l('Audiobooks') %]" 
+            src="[% ctx.media_prefix %]/opac/images/kcpl/header_oneclick.png" /></a>
+       <a href="http://kcpl.axis360.baker-taylor.com"><img class="topnav_kcpl" alt="[% l('Magazines') %]" 
+            src="[% ctx.media_prefix %]/opac/images/kcpl/header_zinio.png" /></a>
+</div>
+
