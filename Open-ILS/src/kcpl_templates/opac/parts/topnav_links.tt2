@@ -1,0 +1,15 @@
+<div id="gold-links-holder">
+    <div id="gold-links">
+        <div id="header-links">
+            <a href="http://catalog.kentonlibrary.org">[% l('Catalog Home') %]</a>
+            <a href="http://kenton.boopsie.com">[% l('Mobile Catalog') %]</a>
+            <a href="http://www.kentonlibrary.org/great-reads/new-items">[% l('New Materials') %]</a>
+            <a href="http://www.kentonlibrary.org/ask">[% l('Ask a Question') %]</a>
+            <a href="http://www.kentonlibrary.org/events">[% l('Programs &amp; Classes') %]</a>
+            <a href="http://www.kentonlibrary.org/databases">[% l('Research &amp; Homework') %]</a>
+            <a href="http://www.kentonlibrary.org/freegal">[% l('Freegal Music') %]</a>
+            <a href="http://www.hoopladigital.com/home">[% l('Hoopla') %]</a>
+            <a href="http://ezproxy.kentonlibrary.org/login?url=http://search.ebscohost.com/login.aspx?authtype=ip,uid&amp;profile=NOVELIST">[% l('Novelist') %]</a>
+        </div>
+    </div>
+</div>
