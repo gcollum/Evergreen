@@ -8,7 +8,7 @@
     [% ELSE %]
     <a href="[% hostname %]">[% l('Catalog') %]</a> &nbsp;|&nbsp;
     [% END %]
-    <a href="http://ezproxy.kenotnlibrayr.org/login?url=http://www.worldbookonline.com/pl/referencecenter/home?subacct=L9456">[% l('World Book Encyclopedia') %]</a> &nbsp;|&nbsp;
+    <a href="http://ezproxy.kentonlibrary.org/login?url=http://www.worldbookonline.com/pl/referencecenter/home?subacct=L9456">[% l('World Book Encyclopedia') %]</a> &nbsp;|&nbsp;
     <a href="http://search.ebscohost.com.ezproxy.kentonlibrary.org/login.aspx?authtype=ip,uid&amp;profile=ehost&amp;defaultdb=f5h">[% l('Magazine Articles') %]</a> &nbsp;|&nbsp;
     <a href="http://ipac.kentonlibrary.org:8081/ipac20/ipac.jsp?profile=main">[% l('Newspaper Index') %]</a> &nbsp;|&nbsp;
     <a href="http://www.kentonlibrary.org/genealogy">[% l('Local History &amp; Genealogy') %]</a> &nbsp;|&nbsp;
