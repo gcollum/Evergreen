@@ -1,0 +1,16 @@
+<div class="login-help-box">
+
+  <div class="login_boxes">
+
+    <div class="login-help-button">
+        <a href="http://www.kentonlibrary.org/catalog-faq" class="opac-button">[% l('Questions?') %]</a>
+    </div>
+
+    <div>
+        <div>
+        <a href="http://www.kentonlibrary.org/catalogfaq/searchpref2012.pdf"><img alt="[% l('Better Searching') %]" src="http://www.kentonlibrary.org/catalogfaq/searchprefbox.png" /></a>
+	</div>
+    </div>
+
+  </div>
+</div>
