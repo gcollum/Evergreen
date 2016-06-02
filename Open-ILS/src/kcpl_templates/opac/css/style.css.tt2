@@ -154,12 +154,16 @@ for now until a better color is picked - if needed.
     margin-left: -1.5em;
 }
 
-#header-wrap {
+/* #header-wrap {
     background: linear-gradient([% css_colors.primary %], [% css_colors.primary_fade %]);
     background: -moz-linear-gradient([% css_colors.primary %], [% css_colors.primary_fade %]);
     background: -o-linear-gradient([% css_colors.primary %], [% css_colors.primary_fade %]);
     background: -webkit-linear-gradient([% css_colors.primary %], [% css_colors.primary_fade %]);
     background-color: [% css_colors.primary_fade %];
+} */
+
+#header-wrap {
+    background-color: #fff;
 }
 #header {
     color: [% css_colors.background %];
@@ -222,6 +226,7 @@ for now until a better color is picked - if needed.
 #gold-links {
     margin-left: 1em;
     padding-left:0px;
+    padding-top: 7px;
 }
 
 #gold-links-home {
@@ -230,7 +235,7 @@ for now until a better color is picked - if needed.
 }
 
 #gold-links-holder {
-    height: 24px;
+    height: 36px;
     background: [% css_colors.background_invert %];
 }
 
