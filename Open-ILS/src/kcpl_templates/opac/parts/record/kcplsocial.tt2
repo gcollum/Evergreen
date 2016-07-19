@@ -1,0 +1,13 @@
+<div class="rdetail_aux_social social_list">
+Share:
+</div>
+<div class="rdetail_aux_social">
+<a href="http://www.facebook.com/sharer/sharer.php?u=http://catalog.kentonlibrary.org/eg/opac/record/[% ctx.bre_id | uri %]" target="blank">
+<img src="[% ctx.media_prefix %]/images/socialshiftfacebook.png" alt="Facebook Icon" title="Facebook" /></a>
+<a href="http://plus.google.com/share?url=http://catalog.kentonlibrary.org/eg/opac/record/[% ctx.bre_id | uri %]" target="blank">
+<img src="[% ctx.media_prefix %]/images/socialshiftgoogle+.png" alt="Google Plus Icon" title="Google+" /></a>
+<a href="http://tumblr.com/share/link?url=http%3A%2F%2Fcatalog.kentonlibrary.org/eg/opac/record/[% ctx.bre_id | uri %]&amp;name=[% ctx.page_title | uri %]" target="blank">
+<img src="[% ctx.media_prefix %]/images/socialshifttumblr.png" title="Tumblr" alt="Tumblr Icon" /></a>
+<a href="http://twitter.com/intent/tweet?text=[% ctx.page_title.substr(0, 99) | uri %] - http://catalog.kentonlibrary.org/eg/opac/record/[% ctx.bre_id | uri %]" target="blank">
+<img src="[% ctx.media_prefix %]/images/socialshifttwitter.png" alt="Twitter Icon" title="Twitter" /></a>
+</div>
