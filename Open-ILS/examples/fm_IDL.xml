@@ -200,6 +200,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 			<field reporter:label="Remove Specification" name="strip_spec" reporter:datatype="text"/>
 			<field reporter:label="Preserve Specification" name="preserve_spec" reporter:datatype="text"/>
 			<field reporter:label="Min. Quality Ratio" name="lwm_ratio" reporter:datatype="float"/>
+                        <field reporter:label="Update Bib. Source" name="update_bib_source" reporter:datatype="bool"/>
 		</fields>
 		<links>
 			<link field="owner" reltype="has_a" key="id" map="" class="aou"/>
@@ -987,7 +988,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 			<field reporter:label="Value" name="value" reporter:datatype="text"  oils_obj:required="true"/>
 		</fields>
 		<links>
-			<link field="source" reltype="has_a" key="id" map="" class="bre"/>
+			<link field="id" reltype="has_a" key="id" map="" class="bre"/>
 		</links>
         <permacrud xmlns="http://open-ils.org/spec/opensrf/IDL/permacrud/v1">
             <actions>
@@ -2985,6 +2986,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 			<field reporter:label="Authority Links" name="authority_links" oils_persist:virtual="true" reporter:datatype="link"/>
 			<field reporter:label="Subscriptions" name="subscriptions" oils_persist:virtual="true" reporter:datatype="link"/>
 			<field reporter:label="SVF Attributes" name="attrs" oils_persist:virtual="true" reporter:datatype="link"/>
+			<field reporter:label="MVF Attributes" name="mattrs" oils_persist:virtual="true" reporter:datatype="link"/>
 		</fields>
 		<links>
 			<link field="owner" reltype="has_a" key="id" map="" class="aou"/>
@@ -3006,6 +3008,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 			<link field="authority_links" reltype="has_many" key="bib" map="" class="abl"/>
 			<link field="subscriptions" reltype="has_many" key="record_entry" map="" class="ssub"/>
 			<link field="attrs" reltype="might_have" key="id" map="" class="mra"/>
+			<link field="mattrs" reltype="might_have" key="id" map="" class="mraf"/>
 			<link field="source" reltype="has_a" key="id" map="" class="cbs"/>
 		</links>
         <permacrud xmlns="http://open-ils.org/spec/opensrf/IDL/permacrud/v1">
@@ -4182,6 +4185,8 @@ SELECT  usr,
 			<link field="copy_bib_record" reltype="has_a" key="id" map="" class="bre"/>
 			<link field="aaactsc_entries" reltype="has_many" key="xact" map="" class="aaactsc"/>
 			<link field="aaasc_entries" reltype="has_many" key="xact" map="" class="aaasc"/>
+			<link field="usr_home_ou" reltype="has_a" key="id" map="" class="aou"/>
+			<link field="usr_profile" reltype="has_a" key="id" map="" class="pgt"/>
 		</links>
 	</class>
 	<class id="acirc" controller="open-ils.cstore" oils_obj:fieldmapper="action::aged_circulation" oils_persist:tablename="action.aged_circulation" reporter:core="true" reporter:label="Aged (patronless) Circulation">
@@ -5761,7 +5766,7 @@ SELECT  usr,
 	</class>
 	<class id="alhr" controller="open-ils.cstore" oils_obj:fieldmapper="action::last_hold_request" reporter:label="Last Captured Hold Request" oils_persist:readonly="true">
 		<oils_persist:source_definition>
-			SELECT ahr.* FROM action.hold_request ahr JOIN (SELECT current_copy, MAX(capture_time) AS capture_time FROM action.hold_request WHERE capture_time IS NOT NULL GROUP BY current_copy)x USING (current_copy, capture_time)
+			SELECT ahr.* FROM action.hold_request ahr JOIN (SELECT current_copy, MAX(capture_time) AS capture_time FROM action.hold_request WHERE capture_time IS NOT NULL AND current_copy IS NOT NULL AND fulfillment_time IS NULL GROUP BY current_copy)x USING (current_copy, capture_time)
 		</oils_persist:source_definition>
 		<fields oils_persist:primary="id">
 			<field reporter:label="Status" name="status" oils_persist:virtual="true" />

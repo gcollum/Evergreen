@@ -249,8 +249,6 @@ SELECT SETVAL('config.non_cataloged_type_id_seq'::TEXT, 100);
 INSERT INTO config.identification_type ( id, name ) VALUES 
     ( 1, oils_i18n_gettext(1, 'Drivers License', 'cit', 'name') );
 INSERT INTO config.identification_type ( id, name ) VALUES 
-    ( 2, oils_i18n_gettext(2, 'SSN', 'cit', 'name') );
-INSERT INTO config.identification_type ( id, name ) VALUES 
     ( 3, oils_i18n_gettext(3, 'Other', 'cit', 'name') );
 SELECT SETVAL('config.identification_type_id_seq'::TEXT, 100);
 
@@ -14481,11 +14479,11 @@ INSERT INTO action_trigger.environment (
     'owning_lib.billing_address'
 );
 
-INSERT INTO vandelay.merge_profile (id, owner, name, replace_spec) 
-    VALUES (1, 1, oils_i18n_gettext(1, 'Match-Only Merge', 'vmp', 'name'), '901c');
+INSERT INTO vandelay.merge_profile (id, owner, name, replace_spec, update_bib_source) 
+    VALUES (1, 1, oils_i18n_gettext(1, 'Match-Only Merge', 'vmp', 'name'), '901c', false);
 
-INSERT INTO vandelay.merge_profile (id, owner, name, preserve_spec) 
-    VALUES (2, 1, oils_i18n_gettext(2, 'Full Overlay', 'vmp', 'name'), '901c');
+INSERT INTO vandelay.merge_profile (id, owner, name, replace_spec, update_bib_source) 
+    VALUES (2, 1, oils_i18n_gettext(2, 'Full Overlay', 'vmp', 'name'), '901c', true);
 
 SELECT SETVAL('vandelay.merge_profile_id_seq'::TEXT, 100);
 

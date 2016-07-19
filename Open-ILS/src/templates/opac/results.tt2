@@ -47,7 +47,7 @@
         <div id="results_header_bar" [%- IF ctx.metarecord %]class="hidden"[% END -%]>
             <div id="results_header_inner">
                 <div class="results_header_btns">
-                    <a href="[% mkurl(ctx.opac_root _ '/home', {$loc_name => loc_value}, 1) %]">[% l('Another Search') %]</a>
+                    <a href="[% mkurl(ctx.opac_root _ '/home', {$loc_name => loc_value, 'detail_record_view' => show_detail_view}, 1) %]">[% l('Another Search') %]</a>
                 </div>
                 <div class="results_header_btns">
                     <a href="[% mkurl(ctx.opac_root _ '/advanced',{}, expert_search_parms.merge(browse_search_parms, facet_search_parms)) %]">[% l('Advanced Search') %]</a>
@@ -69,8 +69,8 @@
 
                     [%- IF show_more_details.default != 'hide' -%]
                     <div class='results_header_sel' id='simple-detail-view-links'>
-                        [% IF CGI.param('detail_record_view') %]
-                        <a href="[% mkurl('', {detail_record_view => ''}) %]">[% l('Show Fewer Details') %]</a> [% ELSE %]
+                        [% IF show_detail_view %]
+                        <a href="[% mkurl('', {detail_record_view => 0}) %]">[% l('Show Fewer Details') %]</a> [% ELSE %]
                         <a href="[% mkurl('', {detail_record_view => 1}) %]">[% l('Show More Details') %]</a>
                         [% END %]
                     </div>
@@ -97,12 +97,6 @@
                             [% CGI.param('depth') == ctx.depth_sel_depth ? ' checked="checked"' : '' %] />
                         [% ctx.depth_sel_checkbox_label | html %]
                     </label>
-                    [% END %]
-                    [%- IF CGI.param('detail_record_view')
-                        OR (show_more_details.default == 'true'
-                        OR show_more_details.default == 'hide');
-                    -%]
-                        <input type="hidden" name="detail_record_view" value="1" />
                     [% END %]
                     [% IF ctx.exclude_electronic_checkbox %]
                     <label class="results_header_lbl" for='opac.result.excludeelec'>

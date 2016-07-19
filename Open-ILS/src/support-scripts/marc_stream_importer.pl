@@ -371,14 +371,16 @@ sub import_queued_records {
     $pcrud->request('open-ils.pcrud.transaction.begin', $authtoken)->recv;
     my $err;
 
+    my $api = 'open-ils.pcrud.delete.';
+    $api .= $cur_rec_type eq 'auth' ? 'vqar' : 'vqbr';
+
     foreach (@cleanup_recs) {
         eval {
-            $pcrud->request(
-                'open-ils.pcrud.delete.vqbr', $authtoken, $_)->recv;
+            $pcrud->request($api, $authtoken, $_)->recv;
         };
 
         if ($@) {
-            $logger->error("Error deleteing queued bib record $_: $@");
+            $logger->error("Error deleting queued $cur_rec_type record $_: $@");
             last;
         }
     }
@@ -492,7 +494,7 @@ sub process_file {
     $msg .= "Successfully imported $imported $cur_rec_type records ".
         "using merge profile '$profile'\n" if $imported;
     $msg .= "Failed to import $failed $cur_rec_type records\n" if $failed;
-    $msg .= "\x00";
+    $msg .= "\x00" unless $spoolfile;
     print $msg;
 
     clear_auth_token(); # logout
