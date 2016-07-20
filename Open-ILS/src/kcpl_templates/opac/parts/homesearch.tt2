@@ -1,0 +1,39 @@
+<!-- <div id="homesearch_main_logo">
+    <img src="[% ctx.media_prefix %]/opac/images/main_logo.png" 
+        [% img_alt(l('Evergreen Logo')) %]/>
+</div>
+-->
+
+<div id="sliderFrame">
+  <div id="slider">
+     <a href="http://www.kentonlibrary.org/freegal"> <img src="[% ctx.media_prefix %]/opac/images/kcpl/slider01.png" alt="Slider image 1" /></a>
+     <a href="http://www.kentonlibrary.org/ebooks"> <img src="[% ctx.media_prefix %]/opac/images/kcpl/slider02.png" alt="Slider image 2" /></a>
+     <a href="http://www.kentonlibrary.org/zinio"> <img src="[% ctx.media_prefix %]/opac/images/kcpl/slider03.png" alt="Slider image 3" /></a>
+     <a href="http://www.hoopladigital.com"> <img src="[% ctx.media_prefix %]/opac/images/kcpl/slider04.png" alt="Slider image 4" /></a>
+  </div>
+   <!--thumbnails-->
+   <div id="thumbs">
+     <div class="thumb">
+	<div class="frame"><img src="/opac/images/kcpl/thumb1.png" alt="Slider thumb1"/></div>
+        <div class="thumb-content"><p>Freegal</p>Download 5 Free Songs Each Week</div>
+	<div style="clear:both;"></div>
+    </div>
+     <div class="thumb">
+	<div class="frame"><img src="/opac/images/kcpl/thumb2.png" alt="Slider thumb2"/></div>
+        <div class="thumb-content"><p>eBooks</p>New eBooks Available</div>
+	<div style="clear:both;"></div>
+    </div>
+     <div class="thumb">
+	<div class="frame"><img src="/opac/images/kcpl/thumb3.png" alt="Slider thumb3"/></div>
+        <div class="thumb-content"><p>Download Magazines</p>Free on your PC, MAC or tablet</div>
+	<div style="clear:both;"></div>
+    </div>
+     <div class="thumb">
+	<div class="frame"><img src="/opac/images/kcpl/thumb4.png" alt="Slider thumb4"/></div>
+        <div class="thumb-content"><p>Download Music, Videos and Audio Books</p>Hoopla Digital</div>
+	<div style="clear:both;"></div>
+    </div>
+  </div>
+
+  <div style="clear:both;height:0;"></div>
+</div>
