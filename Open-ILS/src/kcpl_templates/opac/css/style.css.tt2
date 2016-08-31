@@ -750,6 +750,8 @@ tr.result_table_row > td.results_row_count,
 tr.result_table_row > td.result_table_pic_header,
 tr.result_table_row > td.result_table_title_cell {
     vertical-align: top;
+    padding-top: .5em;
+    padding-bottom: 1em;
 }
 
 .result_metadata {

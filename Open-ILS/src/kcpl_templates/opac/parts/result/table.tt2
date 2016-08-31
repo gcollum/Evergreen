@@ -351,7 +351,91 @@ END;
                                                             [%- has_parts = 'false';
                                                                 END;
                                                              %]
+
+
+                                                        [%- ELSE -%]
+                                                        <!-- These fields are visible when viewing the results page in 'detailed' mode -->
+                                                        [% UNLESS rec.mmr_id %]
+                                                        <!-- Do not show publication-specific information on a metarecord search results page -->
+                                                        [% IF attrs.publisher %]
+                                                            <tr name="results_pub_tr">
+                                                                <td valign="top">
+                                                                    <strong>[% l('Publisher:') %]</strong>
+                                                                </td>
+                                                                <td>[% attrs.pubplace | html; %] [% attrs.publisher | html; %] [% attrs.pubdate | html; %]
+[%-
+FOR entry IN attrs.graphic_pubinfos;
+    FOR alt IN entry.graphic;
+        diratt = "";
+        IF alt.dir;
+            diratt = ' dir="' _ alt.dir _ '"';
+        END;
+-%]
+<div class="graphic880"[% diratt %]>
+    [% alt.value | html %]
+</div>
+[%-
+    END;
+END;
+-%]
+</td>
+                                                            </tr>
+                                                        [% ELSIF attrs.producer %]
+                                                            <tr name="results_pub_tr">
+                                                                <td valign="top">
+                                                                    <strong>[% l('Producer:') %]</strong>
+                                                                </td>
+                                                                <td>[% attrs.prodplace | html; %] [% attrs.producer | html; %] [% attrs.proddate | html; %]</td>
+                                                            </tr>
+                                                        [% ELSIF attrs.distributor %]
+                                                            <tr name="results_pub_tr">
+                                                                <td valign="top">
+                                                                    <strong>[% l('Distributor:') %]</strong>
+                                                                </td>
+                                                                <td>[% attrs.distplace | html; %] [% attrs.distributor | html; %] [% attrs.distdate | html; %]</td>
+                                                            </tr>
+                                                        [% ELSIF attrs.manufacturer %]
+                                                            <tr name="results_pub_tr">
+                                                                <td valign="top">
+                                                                    <strong>[% l('Manufacturer:') %]</strong>
+                                                                </td>
+                                                                <td>[% attrs.manplace | html; %] [% attrs.manufacturer | html; %] [% attrs.mandate | html; %]</td>
+                                                            </tr>
+                                                        [% END %]
+
+                                                        [% IF attrs.edition %]
+                                                            <tr name="results_edition_tr">
+                                                                <td valign="top">
+                                                                    <strong>[% l('Edition:') %]</strong>
+                                                                </td>
+                                                                <td>[% attrs.edition | html %]
+[%-
+FOR entry IN attrs.graphic_editions;
+    FOR alt IN entry.graphic;
+        diratt = "";
+        IF alt.dir;
+            diratt = ' dir="' _ alt.dir _ '"';
+        END;
+-%]
+<div class="graphic880"[% diratt %]>
+    [% alt.value | html %]
+</div>
+[%-
+    END;
+END;
+-%]
+</td>
+                                                            </tr>
+                                                        [% END %]
+                                                        [% END %]
+
                                                         [% END %] <!-- END detail_record_view -->
+
+
+
+
+
+
                                                     </table>
                                                     [% PROCESS "opac/parts/result/copy_counts.tt2" %]
                                                     [% IF rec.user_circulated %]
