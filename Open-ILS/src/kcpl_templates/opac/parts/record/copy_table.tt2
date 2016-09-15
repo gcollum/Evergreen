@@ -218,13 +218,13 @@ END; # FOREACH bib
                     '-';
                 END %]</td>
         </tr>
-<!--
+
         [% IF copy_info.notes; %]
             [% FOREACH note IN copy_info.notes; %]
                 <tr><td>&nbsp;</td><td class="copy_note" colspan="4" property="description"><strong>[% note.title | html %]:</strong> [% note.value | html %]</td></tr>
             [% END %]
         [% END %]
--->
+
 <tr><td>
 [%- IF copy_info.peer_bib_marc.size > 1;
 '<ul>';
