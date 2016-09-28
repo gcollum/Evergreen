@@ -40,7 +40,6 @@ END;
             [%- END %]
             <th scope='col'>[% l("Barcode") %]</th>
             <th scope='col'>[% l("Shelving Location") %]</th>
-            <th scope='col'>[% l("Circ Modifier") %]</th>
             [%- IF ctx.is_staff %]
             <th scope='col'>[% l("Age Hold Protection") %]</th>
             <th scope='col'>[% l("Active/Create Date") %]</th>
@@ -69,7 +68,6 @@ END;
     <td>[% bib.target_copy.call_number.label | html %]</td>
     <td>[% bib.target_copy.barcode | html %]</td>
     <td>[% copy_info.copy_location | html %]</td>
-    <td>[% copy_info.circ_modifier | html %]</td>
     <td>[% copy_info.copy_status | html %]</td>
     <td>[% copy_info.due_date | html %]</td>
 </tr>
@@ -135,7 +133,6 @@ END; # FOREACH bib
                 END; -%]
             </td>
             <td property="availableAtOrFrom">[% copy_info.copy_location | html %]</td>
-            <td>[% copy_info.circ_modifier | html %]</td>
             [%- IF ctx.is_staff %]
             <td>
                 [% copy_info.age_protect ?
