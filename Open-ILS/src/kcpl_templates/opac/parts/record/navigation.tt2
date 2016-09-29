@@ -22,8 +22,13 @@
                 END;
                 ctx.prev_rec_url = mkurl(ctx.prev_search_record, prev_args, stop_parms);
         %]
+[%- IF ctx.is_staff %]
+        <a class='np_nav_link classic_link' title='[% l("Previous Record") %]'
+            href='[% ctx.prev_rec_url %]'><span class="nav_arrow_fix">&#9668;</span> [% l('Previous') %]</a>
+[%- ELSE %]
         <a class='np_nav_link classic_link' title='[% l("Previous Record") %]'
             href='[% ctx.prev_rec_url %]&amp;expand=awards'><span class="nav_arrow_fix">&#9668;</span> [% l('Previous') %]</a>
+[%- END %]
         [% END %]
 
         [% 
@@ -34,8 +39,13 @@
                 END;
                 ctx.next_rec_url = mkurl(ctx.next_search_record, next_args, stop_parms);
         %]
+[%- IF ctx.is_staff %]
+        <a class='np_nav_link classic_link' title='[% l("Next Record") %]'
+            href='[% ctx.next_rec_url %]'>[% l('Next') %] <span class="nav_arrow_fix">&#9658;</span></a>
+[%- ELSE %]
         <a class='np_nav_link classic_link' title='[% l("Next Record") %]'
             href='[% ctx.next_rec_url %]&amp;expand=awards'>[% l('Next') %] <span class="nav_arrow_fix">&#9658;</span></a>
+[%- END %]
         [% END %]
 
     </div>

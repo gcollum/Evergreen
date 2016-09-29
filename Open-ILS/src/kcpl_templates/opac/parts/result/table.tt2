@@ -71,9 +71,15 @@
                                                     result_count; result_count = result_count + 1
                                                 %].</td>
                                             <td class='result_table_pic_header'>
+[%- IF ctx.is_staff %]
+                                                <a href="[% record_url %]"><img alt="[% l('Book cover') %]"
+                                                        name='item_jacket' class='result_table_pic' width="55"
+                                                        src='[% ctx.media_prefix %]/opac/extras/ac/jacket/small/r/[% rec.bre_id | uri %]' /></a><br />
+[%- ELSE %]
                                                 <a href="[% record_url %]&amp;expand=awards"><img alt="[% l('Book cover') %]"
                                                         name='item_jacket' class='result_table_pic' width="55"
                                                         src='[% ctx.media_prefix %]/opac/extras/ac/jacket/small/r/[% rec.bre_id | uri %]' /></a><br />
+[%- END %]
                                             </td>
                                             <td class='result_table_title_cell' name='result_table_title_cell'>
                                                <div class="result_metadata">
@@ -86,11 +92,19 @@
                                                       title='tag:[% ctx.hostname %],[% date.format(date.now, '%Y') %]:biblio-record_entry/[% rec.bre_id %]'>
                                                     </abbr>
                                                     [% END %]
+[%- IF ctx.is_staff %]
+                                                    <a class='record_title search_link' name='record_[% rec.id %]'
+                                                        href="[% record_url %]"
+                                                        [% html_text_attr('title', l('Display record details for "[_1]"', attrs.title)) %]>
+                                                        [% attrs.title | html %]
+                                                     </a>
+[%- ELSE %]
                                                     <a class='record_title search_link' name='record_[% rec.id %]'
                                                         href="[% record_url %]&amp;expand=awards"
                                                         [% html_text_attr('title', l('Display record details for "[_1]"', attrs.title)) %]>
                                                         [% attrs.title | html %]
                                                      </a>
+[%- END %]
                                                      [% IF rec.mr_constituent_count.defined && rec.mr_constituent_count > 1 %]
                                                      <span title="[% l('This group contains [_1] records', rec.mr_constituent_count) %]">
                                                       ([% rec.mr_constituent_count %])
