@@ -185,6 +185,14 @@ IF num_uris > 0;
 
 <h2 id='rdetail_record_details'>[% l("Record details") %]</h2>
 <ul>
+    [%- IF attrs.othertitles.0; FOR othertitle IN attrs.othertitles %]
+    <li class='rdetail_othertitle'>
+        <strong class='rdetail_label'>[% l('Other Titles:'); %]</strong>
+        <span class='rdetail_value'>[%  othertitle | html %]</span>
+    </li>
+	[%- END %]
+    [%- END %]
+
     [%- IF attrs.isbns.0;
           FOR isbn IN attrs.isbns;
             isbn_extra = '';

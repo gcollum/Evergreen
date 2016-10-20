@@ -237,7 +237,16 @@
         ELSE;
              args.sort_title = args.sort_title.replace('^[^A-Z0-9]*','');
         END;
-      
+     
+	# Other Titles
+        args.othertitles = [];
+        othertitle_hunt = xml.findnodes('//*[@tag="246"]/*[@code="a"]');
+        FOR sub IN othertitle_hunt;
+            args.othertitles.push(sub.textContent);
+        END;
+        args.othertitle = (args.othertitles.size) ? args.othertitles.0 : '';
+
+
         args.pubplaces = [];
         pubplace_hunt = xml.findnodes('//*[@tag="260"]/*[@code="a"]') ||
             xml.findnodes('//*[@tag="264" and @ind2="1"]/*[@code="a"]');
@@ -411,7 +420,7 @@
 
         # Extract the 856 URLs that are not otherwise represented by asset.uri's
         args.online_res = [];
-        FOR node IN xml.findnodes('//*[@tag="856" and @ind1="4" and (@ind2="0" or @ind2="1")]');
+        FOR node IN xml.findnodes('//*[@tag="856" and (@ind1="4" or @ind1="7") and (@ind2=" " or @ind2="0" or @ind2="1")]');
             IF node.findnodes('./*[@code="9" or @code="w" or @code="n"]'); NEXT; END; # asset.uri's
             label = node.findnodes('./*[@code="y"]');
             notes = node.findnodes('./*[@code="z" or @code="3"]');
