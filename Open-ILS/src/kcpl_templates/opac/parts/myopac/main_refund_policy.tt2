@@ -1,0 +1,11 @@
+<tr>
+    <td colspan="3">
+        <br />
+        <strong>
+        [% l('Please enter your email address above and a ' _
+             'receipt will be emailed to you.  Alternatively, be ' _
+             'sure to print the pamyment receipt screen.')
+        %]
+        </strong>
+    </td>
+</tr>
