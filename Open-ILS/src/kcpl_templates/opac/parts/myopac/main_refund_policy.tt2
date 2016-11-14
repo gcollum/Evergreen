@@ -4,7 +4,7 @@
         <strong>
         [% l('Please enter your email address above and a ' _
              'receipt will be emailed to you.  Alternatively, be ' _
-             'sure to print the pamyment receipt screen.')
+             'sure to print the payment receipt screen.')
         %]
         </strong>
     </td>
