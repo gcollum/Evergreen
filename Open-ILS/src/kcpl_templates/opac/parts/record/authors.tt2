@@ -8,10 +8,10 @@ authors = [
         type => 'author', 
         label => l('Author'),
         xpath => '//*[@tag="100"]|//*[@tag="110"]|//*[@tag="111"]'
-    }, {
-        type => 'added', 
-        label => l('Added Entry'),
-        xpath => '//*[@tag="700"]|//*[@tag="710"]|//*[@tag="711"]'
+#    }, {
+#        type => 'added', 
+#        label => l('Added Entry'),
+#        xpath => '//*[@tag="700"]|//*[@tag="710"]|//*[@tag="711"]'
     }, {
         type => 'cast', 
         label => l('Cast'),
