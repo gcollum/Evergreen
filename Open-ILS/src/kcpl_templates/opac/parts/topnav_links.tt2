@@ -9,7 +9,7 @@
             <a href="http://www.kentonlibrary.org/databases">[% l('Research &amp; Homework') %]</a>
             <a href="http://www.kentonlibrary.org/freegal">[% l('Freegal Music') %]</a>
             <a href="http://www.hoopladigital.com/home">[% l('Hoopla') %]</a>
-            <a href="http://ezproxy.kentonlibrary.org/login?url=http://search.ebscohost.com/login.aspx?authtype=ip,uid&amp;profile=NOVELIST">[% l('Novelist') %]</a>
+            <a href="http://kentonky.oneclickdigital.com">[% l('RBdigital') %]</a>
         </div>
     </div>
 </div>
