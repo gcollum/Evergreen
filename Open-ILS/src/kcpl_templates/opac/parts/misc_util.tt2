@@ -240,11 +240,17 @@
      
 	# Other Titles
         args.othertitles = [];
-        othertitle_hunt = xml.findnodes('//*[@tag="246"]/*[@code="a"]');
-        FOR sub IN othertitle_hunt;
-            args.othertitles.push(sub.textContent);
-        END;
-        args.othertitle = (args.othertitles.size) ? args.othertitles.0 : '';
+	other_b = '';
+        other_a = '';
+        FOR node IN xml.findnodes('//*[@tag="246"]');
+          other_b = node.findnodes('./*[@code="b"]');
+          FOR sub IN node.findnodes('./*[@code="a"]'); 
+             args.othertitles.push({
+                other_a => sub.textContent,
+                other_b => other_b.textContent
+          });
+          END;
+         END;
 
 
         args.pubplaces = [];

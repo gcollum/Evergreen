@@ -186,11 +186,16 @@ IF num_uris > 0;
 <h2 id='rdetail_record_details'>[% l("Record details") %]</h2>
 <ul>
     [%- IF attrs.othertitles.0; FOR othertitle IN attrs.othertitles %]
-    <li class='rdetail_othertitle'>
+      [%- IF othertitle.other_a %]
+      <li class='rdetail_othertitle'>
         <strong class='rdetail_label'>[% l('Other Titles:'); %]</strong>
-        <span class='rdetail_value'>[%  othertitle | html %]</span>
-    </li>
+        <span class='rdetail_value'>[%  othertitle.other_a | html %]</span>
+        [%- IF othertitle.other_b %]
+        <span class='rdetail_value'>[%  othertitle.other_b | html %]</span>
+        [%- END %]
+      </li>
 	[%- END %]
+      [%- END %]
     [%- END %]
 
     [%- IF attrs.isbns.0;
