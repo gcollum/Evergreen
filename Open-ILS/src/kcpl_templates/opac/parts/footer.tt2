@@ -14,6 +14,7 @@
     <a href="http://www.kentonlibrary.org/genealogy">[% l('Local History &amp; Genealogy') %]</a> &nbsp;|&nbsp;
     <a href="http://www.kentonlibrary.org/ill">[% l('Interlibrary Loan') %]</a> &nbsp;|&nbsp;
     <a href="http://www.kentonlibrary.org/great-reads/item-requests">[% l('Request a Purchase') %]</a> &nbsp;|&nbsp;
+    <a href="https://ezproxy.kentonlibrary.org/login?url=http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=NOVELIST">[% l('Novelist') %]</a> &nbsp;|&nbsp;
     [% IF ctx.timing %]
     <div id="timing">
         [% FOR event IN ctx.timing %]
