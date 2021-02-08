@@ -222,7 +222,9 @@ A new Template Toolkit macro called “carousels” allows the Evergreen adminis
 * carousel_id
 * dynamic (Boolean, default value false)
 * image_size (small, medium, or large)
-* width (number of titles to display on a “pane” of the carousel)
+* width (number of titles to display on a “pane” of the carousel. The default is 4.)
+* sm_width (number of titles to display on a “pane” of the carousel for screens between 768 and 992 pixels. The default is 3.)
+* xs_width (number of titles to display on a “pane” of the carousel for screens below 768 pixels. The default is 2.)
 * animated (Boolean to specify whether the carousel should automatically cycle through its panes)
 * animation_interval (the interval (in seconds) to wait before advancing to the next pane)
 
